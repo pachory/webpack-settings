@@ -1,5 +1,5 @@
 const DEPLOYMODE = "development"
-const enabledSourceMap = MODE === "development"
+const enabledSourceMap = DEPLOYMODE === "development"
 
 module.exports = {
     // ソースコードの圧縮 (production を指定すると圧縮される)
@@ -35,12 +35,18 @@ module.exports = {
                 }]
             },
             {
-                // CSS のバンドル設定
-                test: /\.css/,
+                test: /\.scss/,
                 use: ["style-loader", {
-                    loader: "css-loader",
-                    options: { url: false, sourceMap: enabledSourceMap }
-                }]
+                        // CSS をバンドルするための設定
+                        loader: "css-loader",
+                        options: { url: false, sourceMap: enabledSourceMap, importLoaders: 2 }
+                    },
+                    {
+                        // Sass をバンドルするための設定
+                        loader: "sass-loader",
+                        options: { sourceMap: enabledSourceMap }
+                    }
+                ]
             }
         ]
     },
