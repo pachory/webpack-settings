@@ -39,7 +39,7 @@ module.exports = {
                 use: ["style-loader", {
                         // CSS をバンドルするための設定
                         loader: "css-loader",
-                        options: { url: false, sourceMap: enabledSourceMap, importLoaders: 2 }
+                        options: { url: true, sourceMap: enabledSourceMap, importLoaders: 2 }
                     },
                     {
                         // Sass をバンドルするための設定
@@ -47,8 +47,12 @@ module.exports = {
                         options: { sourceMap: enabledSourceMap }
                     }
                 ]
+            },
+            {
+                // 画像をバンドルするための設定
+                test: /\.(gif|png|jpg|eot|wof|woff|woff2|ttf|svg)$/,
+                loader: "url-loader"
             }
         ]
     },
-
 }
