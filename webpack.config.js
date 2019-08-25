@@ -15,5 +15,22 @@ module.exports = {
     devServer: {
         contentBase: "dist",
         open: true
-    }
+    },
+
+    module: {
+        rules: [{
+            // Babel の設定
+            test: /\.js$/,
+            use: [{
+                loader: "babel-loader",
+                options: {
+                    presets: [
+                        // プリセット使うと ES2019 を ES5 にトランスパイルする
+                        "@babel/preset-env"
+                    ]
+                }
+            }]
+        }]
+    },
+
 }
