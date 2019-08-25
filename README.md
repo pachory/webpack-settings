@@ -8,3 +8,10 @@
 - CSS のバンドル
 - Scss 
 - Autoprefixer
+
+## 実行
+
+1. Clone する
+2. `npm install` の実行
+3. ローカルサーバーの立ち上げ `npm run dev`
+4. ビルドコマンド `npm run build`
