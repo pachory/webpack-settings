@@ -8,6 +8,7 @@
 - CSS のバンドル
 - Scss 
 - Autoprefixer
+- Pug のトランスパイル (webpack-dev-server 立ち上げたら変更検知してリロードされる)
 
 ## 実行
 
