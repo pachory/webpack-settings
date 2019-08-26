@@ -1,7 +1,17 @@
 const DEPLOYMODE = "development"
 const enabledSourceMap = DEPLOYMODE === "development"
+const path = require('path')
+const globule = require('globule')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const pugFilePaths = globule.find(
+    './src/**/*.pug', {
+        ignore: [
+            './src/**/_*/*.pug'
+        ]
+    }
+)
 
-module.exports = {
+const webpackConfig = {
     // ソースコードの圧縮 (production を指定すると圧縮される)
     mode: DEPLOYMODE,
 
@@ -17,6 +27,7 @@ module.exports = {
     // ローカルサーバー設定
     devServer: {
         contentBase: "dist",
+        watchContentBase: true,
         open: true
     },
 
@@ -24,6 +35,7 @@ module.exports = {
         rules: [{
                 // Babel の設定
                 test: /\.js$/,
+                exclude: /node_modules/,
                 use: [{
                     loader: "babel-loader",
                     options: {
@@ -65,7 +77,31 @@ module.exports = {
                 // 画像をバンドルするための設定
                 test: /\.(gif|png|jpg|eot|wof|woff|woff2|ttf|svg)$/,
                 loader: "url-loader"
+            },
+            {
+                test: /\.pug$/,
+                exclude: /node_modules/,
+                use: [{
+                    loader: 'pug-loader',
+                    options: {
+                        pretty: true,
+                        root: path.resolve(__dirname, 'src/')
+                    }
+                }]
             }
         ]
     },
+    plugins: []
 }
+
+pugFilePaths.forEach((pugFilePath) => {
+    const fileName = pugFilePath.replace('./src/', '').replace('.pug', '.html')
+    webpackConfig.plugins.push(
+        new HtmlWebpackPlugin({
+            filename: `${fileName}`,
+            template: pugFilePath
+        })
+    )
+})
+
+module.exports = webpackConfig
