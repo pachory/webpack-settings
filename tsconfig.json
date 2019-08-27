@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "target": "es5", // ECMAScript5 に変換
+        "module": "es2015" // ES Modules で出力
+    }
+}

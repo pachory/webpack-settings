@@ -15,7 +15,7 @@ const webpackConfig = {
     // ソースコードの圧縮 (production を指定すると圧縮される)
     mode: DEPLOYMODE,
 
-    // エントリーポイントの JS
+    // エントリーポイントファイルの指定
     entry: `./src/index.js`,
 
     // ビルド後ファイルの出力設定
@@ -88,8 +88,16 @@ const webpackConfig = {
                         root: path.resolve(__dirname, 'src/')
                     }
                 }]
+            },
+            {
+                // TypeScript の設定
+                test: /\.ts$/,
+                use: "ts-loader"
             }
         ]
+    },
+    resolve: {
+        extensions: [".ts", ".tsx", ".js"]
     },
     plugins: []
 }
