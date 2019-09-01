@@ -112,7 +112,7 @@ const webpackConfig = {
   plugins: [],
 };
 
-pugFilePaths.forEach((pugFilePath) => {
+pugFilePaths.forEach(pugFilePath => {
   const fileName = pugFilePath.replace('./src/', '').replace('.pug', '.html');
   webpackConfig.plugins.push(
     new HtmlWebpackPlugin({

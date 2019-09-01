@@ -7,7 +7,7 @@
         "build": "webpack",
         "watch": "webpack --watch",
         "dev": "webpack-dev-server",
-        "lint": "eslint webpack.config.js"
+        "lint": "eslint --ext .js,.jsx,.ts,.tsx ./"
     },
     "keywords": [],
     "author": "",
@@ -15,11 +15,12 @@
     "devDependencies": {
         "@babel/core": "^7.5.5",
         "@babel/preset-env": "^7.5.5",
+        "@typescript-eslint/eslint-plugin": "^1.13.0",
         "autoprefixer": "^9.6.1",
         "babel-loader": "^8.0.6",
         "css-loader": "^3.2.0",
         "eslint": "^6.3.0",
-        "eslint-config-airbnb-base": "^14.0.0",
+        "eslint-config-airbnb-typescript": "^4.0.1",
         "eslint-loader": "^3.0.0",
         "eslint-plugin-import": "^2.18.2",
         "globule": "^1.2.1",

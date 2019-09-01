@@ -1,7 +1,10 @@
 {
+    "editor.formatOnSave": false,
+    "eslint.nodePath": "./node_modules/eslint",
     "eslint.autoFixOnSave": true,
     "eslint.validate": [
         "javascript",
-        {"language": "javascript","autoFix": true}
+        {"language": "javascript", "autoFix": true},
+        {"language": "typescript", "autoFix": true}
     ]
 }
