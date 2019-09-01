@@ -9,6 +9,7 @@
 - Scss 
 - Autoprefixer
 - Pug のトランスパイル (webpack-dev-server 立ち上げたら変更検知してリロードされる)
+- ESLint + Prettier (VSCode の設定も)
 
 ## 実行
 
