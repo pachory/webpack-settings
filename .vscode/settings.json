@@ -6,5 +6,11 @@
         "javascript",
         {"language": "javascript", "autoFix": true},
         {"language": "typescript", "autoFix": true}
-    ]
+    ],
+    "puglint.enable": true,
+    "puglint.run": "onSave",
+    "puglint.config": {
+        "extends": "clock",
+        "validateAttributeQuoteMarks": "\""
+    }
 }
